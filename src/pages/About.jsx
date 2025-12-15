@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
-import UserProfile from '../components/program/UserProfile';
+import UserProfile from '../components/program/AuthContext';
 import UserList from '../components/program/UserList';
 import CreatePost from '../components/program/CreatePost';
 import Footer from '../components/Footer/Footer';

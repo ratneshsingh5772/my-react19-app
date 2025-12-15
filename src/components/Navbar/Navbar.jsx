@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../program/AuthContextInstance";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useContext(AuthContext);
 
   return (
     <nav className="bg-white shadow-lg">
@@ -17,7 +19,11 @@ export default function Navbar() {
               <Link to="/" className="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</Link>
               <Link to="/about" className="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</Link>
               <Link to="/theme" className="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition duration-300">Theme</Link>
+              <Link to="/authlogin" className="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition duration-300">Auth Login</Link>
               <a href="/contact" className="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+              <span className="text-black px-3 py-2 text-sm font-medium">
+                {user ? `Signed in as: ${user.name}` : "Guest"}
+              </span>
             </div>
           </div>
 
@@ -47,6 +53,9 @@ export default function Navbar() {
             <Link to="/" className="text-black hover:bg-gray-100 hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Home</Link>
             <Link to="/about" className="text-black hover:bg-gray-100 hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">About</Link>
             <a href="/contact" className="text-black hover:bg-gray-100 hover:text-black block px-3 py-2 rounded-md text-base font-medium transition duration-300">Contact</a>
+            <div className="text-black px-3 py-2 text-sm font-medium border-t border-gray-200 mt-2 pt-2">
+              {user ? `Signed in as: ${user.name}` : "Guest"}
+            </div>
           </div>
         </div>
       )}
