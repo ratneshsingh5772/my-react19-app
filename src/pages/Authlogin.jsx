@@ -11,7 +11,6 @@ export default function Authlogin() {
           <h1 className="text-3xl font-bold text-gray-800 mb-2">Authentication Login</h1>
           <p className="text-gray-600">Simple login form component</p>
         </div>
-
         <UserProfile />
       </div>
       <Footer />

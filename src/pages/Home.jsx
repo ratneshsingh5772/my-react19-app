@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar/Navbar'
 import Counter from '../components/program/Counter';
 import UserCard from '../components/program/UserCard';
+import { Header } from '../components/program/Header';
 
 function Home() {
   return (
@@ -28,6 +29,17 @@ function Home() {
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Language Demo Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Language Switching Demo</h2>
+            <p className="text-gray-600">Experience multilingual support with React Context</p>
+          </div>
+          <Header />
         </div>
       </section>
 
