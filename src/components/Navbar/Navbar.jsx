@@ -21,6 +21,7 @@ export default function Navbar() {
               <Link to="/theme" className="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition duration-300">Theme</Link>
               <Link to="/authlogin" className="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition duration-300">Auth Login</Link>
               <Link to="/bankaccount" className="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition duration-300">Bank Account</Link>
+              <Link to="/usecallback" className="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition duration-300">UseCallback</Link>
               <a href="/contact" className="text-black hover:bg-gray-100 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
               <span className="text-black px-3 py-2 text-sm font-medium">
                 {user ? `Signed in as: ${user.name}` : "Guest"}

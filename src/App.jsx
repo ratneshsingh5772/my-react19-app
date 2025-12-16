@@ -6,6 +6,7 @@ import Theme from './pages/Theme';
 import Authlogin from './pages/Authlogin';
 import { LanguageProvider } from './components/program/LanguageProvider';
 import BankAccount from './pages/Bank';
+import UseCallback from './pages/UseCallback';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/theme" element={<Theme />} />
         <Route path="/authlogin" element={<Authlogin />} />
         <Route path="/bankaccount" element={<BankAccount />} />
+        <Route path="/usecallback" element={<UseCallback />} />
       </Routes>
       </LanguageProvider>
     </AuthProvider>
