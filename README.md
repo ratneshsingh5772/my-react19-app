@@ -59,6 +59,61 @@ const [formData, setFormData] = useState({
 });
 ```
 
+#### `useReducer` - Complex State Management
+
+```jsx
+// Step 1: Define initial state
+const initialState = { balance: 0 };
+
+// Step 2: Define reducer function (pure function)
+const bankingReducer = (state, action) => {
+  switch (action.type) {
+    case 'DEPOSIT':
+      return { balance: state.balance + action.payload };
+    case 'WITHDRAW':
+      // Business logic: prevent negative balance
+      if (state.balance < action.payload) return state;
+      return { balance: state.balance - action.payload };
+    case 'RESET':
+      return initialState;
+    default:
+      return state;
+  }
+};
+
+// Step 3: Use in component
+const BankAccount = () => {
+  const [state, dispatch] = useReducer(bankingReducer, initialState);
+  const [amount, setAmount] = useState(0);
+
+  return (
+    <div>
+      <h1>Balance: ${state.balance}</h1>
+      <input
+        type="number"
+        value={amount}
+        onChange={(e) => setAmount(Number(e.target.value))}
+      />
+      {/* Dispatch actions instead of setting state directly */}
+      <button onClick={() => dispatch({ type: 'DEPOSIT', payload: amount })}>
+        Deposit
+      </button>
+      <button onClick={() => dispatch({ type: 'WITHDRAW', payload: amount })}>
+        Withdraw
+      </button>
+    </div>
+  );
+};
+```
+
+**Key Concepts:**
+
+- **Pure Reducer Function**: Takes current state and action, returns new state
+- **Actions**: Objects with `type` and optional `payload`
+- **Dispatch**: Function to send actions to reducer
+- **Business Logic**: Lives in reducer, not in event handlers
+- **Predictable State Updates**: Actions describe what happened
+
 #### `useEffect` - Side Effects
 
 ```jsx
@@ -558,6 +613,8 @@ src/
 ### Hooks Deep Dive
 
 1. **useState vs useReducer** - Simple vs complex state logic
+   - useState: Simple state changes, local component state
+   - useReducer: Complex state logic, business logic in reducer
 2. **useEffect dependencies** - When and how to include dependencies
 3. **Custom hooks** - Reusable logic extraction
 4. **Rules of hooks** - Only call at top level, only in React functions

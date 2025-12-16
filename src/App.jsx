@@ -5,6 +5,7 @@ import About from './pages/About';
 import Theme from './pages/Theme';
 import Authlogin from './pages/Authlogin';
 import { LanguageProvider } from './components/program/LanguageProvider';
+import BankAccount from './pages/Bank';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/theme" element={<Theme />} />
         <Route path="/authlogin" element={<Authlogin />} />
+        <Route path="/bankaccount" element={<BankAccount />} />
       </Routes>
       </LanguageProvider>
     </AuthProvider>
